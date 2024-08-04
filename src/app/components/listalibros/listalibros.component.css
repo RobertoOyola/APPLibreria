@@ -1,0 +1,52 @@
+.books-table {
+    padding: 1rem;
+    background-color: white;
+    margin: 1rem;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Asegura que el contenedor de la tabla se ajuste al ancho del contenedor padre */
+}
+
+.table-header,
+.table-body-content {
+    width: 100%; /* Asegura que la tabla ocupe el 100% del ancho del contenedor */
+    border-collapse: collapse;
+}
+
+.table-header th, 
+.table-body-content td {
+    padding: 1rem;
+    text-align: left; /* Centra el texto en las celdas */
+    border-bottom: 1px solid #ddd;
+}
+
+.table-header th {
+    background-color: #f0f0f0;
+}
+
+.table-body {
+    height: 450px;
+    overflow-y: auto;
+}
+
+.table-body-content {
+    width: 100%;
+}
+
+.table-body-content td {
+    white-space: nowrap;
+}
+
+.table-body tr:hover {
+    background-color: #f9f9f9;
+}
+
+.custom-select {
+    max-height: 200px;
+    overflow-y: auto;
+}

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { loginUser } from '../../interfaces/loginuser';
+import { loginUsuario } from '../../interfaces/loginUsuario';
 import { UsuariosServicesService } from '../../services/usuarios-services.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -20,7 +20,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  usuario: loginUser = {
+  usuario: loginUsuario = {
     correo: '',
     contrasenia: ''
   }
@@ -32,16 +32,15 @@ export class LoginComponent {
   ){}
 
   onSubmit() {
-    const loginUser = {
+    const loginUsuario = {
       correo: this.usuario.correo,
       contrasenia: this.usuario.contrasenia
     };
-    this._usuarioService.login(loginUser).subscribe({
+    this._usuarioService.login(loginUsuario).subscribe({
       next: (response) => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home/libros']);
       },
       error: (err) => {
-        console.error('Credenciales Incorrectas');
         this.toastr.error('Credenciales Incorrectas', 'Error')
       }
     });

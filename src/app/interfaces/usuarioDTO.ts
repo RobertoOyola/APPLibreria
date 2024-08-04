@@ -1,8 +1,7 @@
 export interface usuarioDTO {
-    id: number;
+    idUsuario: number;
     cedula: string;
-    nombre: string;
     correo: string;
-    contrasenia: string;
+    nombres: string;
     estado: string;
 }

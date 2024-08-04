@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row g-2 mt-3">
+    <div class="col-md">
+      <div class="form-floating">
+        <input type="search" class="form-control" id="floatingInputGrid" placeholder="Busqueda"
+               [(ngModel)]="filtro.busqueda" (ngModelChange)="obtenerLibros()">
+        <label for="floatingInputGrid">Busqueda</label>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="row g-2">
+        <div class="col-md">
+          <div class="form-floating">
+            <select class="form-select custom-select" id="floatingSelectGrid1" 
+                    [(ngModel)]="filtro.idAutor" (ngModelChange)="obtenerLibros()">
+              <option value="0">Filtra por Autores</option>
+              <option *ngFor="let autor of autores" [value]="autor.idAutor">
+                {{ autor.nombreAutor }}
+              </option>
+            </select>
+            <label for="floatingSelectGrid1">Autores</label>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <select class="form-select custom-select" id="floatingSelectGrid2" 
+                    [(ngModel)]="filtro.idCategoria" (ngModelChange)="obtenerLibros()">
+              <option value="0">Filtra por Categorias</option>
+              <option *ngFor="let categoria of categorias" [value]="categoria.idCategoria">
+                {{ categoria.descripcionCategoria }}
+              </option>
+            </select>
+            <label for="floatingSelectGrid2">Categorias</label>
+          </div>
+        </div>
+        <div class="col-2">
+          <button type="button" class="btn btn-secondary" (click)="limpiarFiltros()">
+            Limpiar Filtros
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="books-table">
+      <div class="table-container">
+        <table class="table-header">
+          <thead>
+            <tr>
+              <th class="col-4">Título</th>
+              <th class="col-2">Autor</th>
+              <th class="col-2">Año</th>
+              <th class="col-2">Stock</th>
+              <th class="col-2">Género</th>
+              <th class="col-1">
+                <img src="assets/images/square.svg" />
+              </th>
+              <th class="col-1"></th>
+            </tr>
+          </thead>
+        </table>
+        <div class="table-body">
+          <table class="table-body-content">
+            <tbody>
+              <tr *ngFor="let libro of libros">
+                <td class="col-4">{{ libro.nombre }}</td>
+                <td class="col-2">{{ libro.nombreAutor }}</td>
+                <td class="col-2">{{ libro.anioPublicacion }}</td>
+                <td class="col-2">{{ libro.totalStock }}</td>
+                <td class="col-2">{{ libro.descripcionCategoria }}</td>
+                <td class="col-1">
+                  <button type="button" class="btn btn-secondary">Pedir</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

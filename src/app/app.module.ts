@@ -1,24 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './components/login/login.component';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { ToastrModule } from 'ngx-toastr';
+import { provideToastr, ToastrModule } from 'ngx-toastr';
+import { ListalibrosComponent } from './components/listalibros/listalibros.component';
+import { CommonModule } from '@angular/common';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
-    
   ],
   imports: [
-    ToastrModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     AppComponent,
-    LoginComponent,
-    FormsModule
+    ListalibrosComponent,
+    FormsModule,
+    CommonModule,
   ],
-  providers: []
+  providers: [
+    provideAnimations(),
+    provideToastr(),
+  ]
 })
 
 export class AppModule {}
