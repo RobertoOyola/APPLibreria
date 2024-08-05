@@ -11,6 +11,7 @@ import { LibrosServicesService } from './app/services/libros-services.service';
 import { CategoriasService } from './app/services/categorias.service';
 import { AutoresService } from './app/services/autores.service';
 
+
 bootstrapApplication(AppComponent, {
   providers: [
     UsuariosServicesService,
@@ -26,6 +27,7 @@ bootstrapApplication(AppComponent, {
       ToastrModule.forRoot({
         preventDuplicates: true,
       }),
+      
     ),
   ]
 }).catch(err => console.error(err));

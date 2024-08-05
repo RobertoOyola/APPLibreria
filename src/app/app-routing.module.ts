@@ -4,7 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ListalibrosComponent } from './components/listalibros/listalibros.component';
 import { AddestudianteComponent } from './components/addestudiante/addestudiante.component';
-import { AdminComponent } from './components/admin/admin.component';
+import { AdminComponent } from './components/adminscomponents/admin/admin.component';
 
 
 const routes: Routes = [
@@ -14,7 +14,11 @@ const routes: Routes = [
     children: [
           {path: 'libros',          component: ListalibrosComponent},
           {path: 'estudiante',      component: AddestudianteComponent},
-          {path: 'admin',      component: AdminComponent}
+          {path: 'admin',           component: AdminComponent,
+            children: [
+              {path: 'main',        component: AddestudianteComponent }
+            ]
+          }
         ] 
   },
 ]
