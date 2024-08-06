@@ -13,6 +13,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .navbar-logo {
@@ -27,8 +28,11 @@ body {
     list-style: none;
     display: flex;
     margin: 0;
-    margin-left: 20px;
     padding: 0;
+}
+
+.navbar-menu {
+    flex: 1;
 }
 
 .navbar-menu .nav-item,
@@ -48,4 +52,19 @@ body {
 .navbar-menu .nav-item a:hover,
 .navbar-exit .nav-item a:hover {
     color: #ccc;
+}
+
+
+@media (max-width: 768px) {
+    .navbar-menu,
+    .navbar-exit {
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    .navbar-menu .nav-item,
+    .navbar-exit .nav-item {
+        margin-left: 0;
+        margin-bottom: 1rem;
+    }
 }

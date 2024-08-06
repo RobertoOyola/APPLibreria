@@ -7,6 +7,7 @@ import { provideToastr, ToastrModule } from 'ngx-toastr';
 import { ListalibrosComponent } from './components/listalibros/listalibros.component';
 import { CommonModule } from '@angular/common';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { AdminModule } from './components/adminscomponents/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
     ListalibrosComponent,
     FormsModule,
     CommonModule,
+    AdminModule,
   ],
   providers: [
     provideAnimations(),

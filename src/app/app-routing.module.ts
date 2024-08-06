@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { ListalibrosComponent } from './components/listalibros/listalibros.component';
 import { AddestudianteComponent } from './components/addestudiante/addestudiante.component';
 import { AdminComponent } from './components/adminscomponents/admin/admin.component';
+import { RegistrarEntregaComponent } from './components/adminscomponents/registrar-entrega/registrar-entrega.component';
 
 
 const routes: Routes = [
@@ -14,16 +15,14 @@ const routes: Routes = [
     children: [
           {path: 'libros',          component: ListalibrosComponent},
           {path: 'estudiante',      component: AddestudianteComponent},
-          {path: 'admin',           component: AdminComponent,
-            children: [
-              {path: 'main',        component: AddestudianteComponent }
-            ]
-          }
+          { path: 'admin', loadChildren: () => 
+            import('./components/adminscomponents/admin/admin.module').then(m => m.AdminModule) }
         ] 
   },
 ]
 
 @NgModule({
+  
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
