@@ -19,7 +19,7 @@ import { AdminModule } from './components/adminscomponents/admin/admin.module';
     ListalibrosComponent,
     FormsModule,
     CommonModule,
-    AdminModule,
+    AdminModule
   ],
   providers: [
     provideAnimations(),

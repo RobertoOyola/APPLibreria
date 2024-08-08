@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CategoriasService } from '../../services/categorias.service';
@@ -12,18 +12,21 @@ import { filtroLibros } from '../../interfaces/filtroLibros';
 import { librosFiltrados } from '../../interfaces/librosFiltrados';
 import { LibrosResponse } from '../../interfaces/libroResponse';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { RegistrarPedidoComponent } from '../registrar-pedido/registrar-pedido.component';
 
 @Component({
   selector: 'app-listalibros',
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RegistrarPedidoComponent
   ],
   templateUrl: './listalibros.component.html',
   styleUrls: ['./listalibros.component.css']
 })
 export class ListalibrosComponent implements OnInit {
+  @ViewChild(RegistrarPedidoComponent) dialogLogin!: RegistrarPedidoComponent;
   categorias: categoriaDTO[] = [];
   autores: AutorDTO[] = [];
   libros: librosFiltrados[] = [];
@@ -90,5 +93,6 @@ export class ListalibrosComponent implements OnInit {
     };
     this.obtenerLibros();
   }
+  
 }
 

@@ -1,0 +1,27 @@
+.container {
+    max-width: 100%;
+    margin: auto;
+}
+.button {
+    color: rgb(109, 109, 109);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 10vh;
+    font-size: 32px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 3vh;
+}
+.button:hover {
+    background-color: #d4d4d4;
+}
+.img-container {
+    text-align: center;
+}
+.img-container img {
+    max-width: 100%;
+    height: auto;
+}
+.text-center {
+    text-align: center;
+}
