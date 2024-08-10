@@ -1,0 +1,60 @@
+<div class="container mt-3">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <form (ngSubmit)="OnSubmit(formulario)" #formulario="ngForm">
+                <h3 class="titulo">Agregar Libros</h3>
+
+              <div class="mb-2">
+                <label for="nombre" class="form-label">Título del Libro</label>
+                <input type="text" class="form-control" id="nombre" [(ngModel)]="libro.nombre" name="nombre" required #nombres="ngModel">
+                <div *ngIf="nombres.invalid && nombres.touched" class="text-danger">
+              El nombre es obligatorio.
+            </div>
+
+              </div>
+              <div class="mb-2">
+                <label for="nombreAutor" class="form-label">Autor</label>
+                <input type="text" class="form-control" id="nombreAutor" [(ngModel)]="libro.nombreAutor" name="nombreAutor" required #nombreAutor="ngModel">
+                <div *ngIf="nombreAutor.invalid && nombreAutor.touched" class="text-danger">
+              El Autor es obligatorio.
+            </div>
+
+              </div>
+              <div class="mb-2">
+                <label for="descripcionCategoria" class="form-label">Categoria</label>
+                <input type="text" class="form-control" id="descripcionCategoria" [(ngModel)]="libro.descripcionCategoria" name="descripcionCategoria" required #descripcionCategoria="ngModel">
+                <div *ngIf="descripcionCategoria.invalid && descripcionCategoria.touched" class="text-danger">
+              Categoria es obligatoria.
+            </div>
+
+              </div>
+              <div class="row mb-2">
+                <div class="col-md-6">
+                  <label for="aniopublicacion" class="form-label">Año de Publicación</label>
+                  <input type="number" class="form-control" id="aniopublicacion" [(ngModel)]="libro.aniopublicacion" name="aniopublicacion" pattern="^\d{4}$" required #aniopublicacion="ngModel">
+                  <div *ngIf="aniopublicacion.invalid && aniopublicacion.touched" class="text-danger">
+              El Año es obligatorio.
+            </div>
+
+                </div>
+                <div class="col-md-6">
+                  <label for="totalStock" class="form-label">Cantidad</label>
+                  <input type="number" class="form-control" id="totalStock" [(ngModel)]="libro.totalStock" name="totalStock" required #totalStock="ngModel">
+                  <div *ngIf="totalStock.invalid && totalStock.touched" class="text-danger">
+              La Cantidad es obligatoria.
+            </div>
+            
+                </div>
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid">Ingresar Libro</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

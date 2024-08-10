@@ -15,7 +15,10 @@ export class UsuariosServicesService {
 
   login(data: loginUsuario):Observable<usuarioDTO>{
     return this.http.post<usuarioDTO>(`${this.apiUrl}/Login`, data);
-    
+  }
+
+  InsertarEstudiante(obj: usuarioDTO): Observable<usuarioDTO> {
+    return this.http.post<usuarioDTO>(`${this.apiUrl}/InsertarUsuario`, obj);
   }
 
 }

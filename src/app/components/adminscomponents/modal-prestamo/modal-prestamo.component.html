@@ -1,0 +1,17 @@
+<div class="modal fade mt-5" id="myModalRecepcion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmar Devolución</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Quiere aceptar esta devolución?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Cancelar</button>
+                <button type="button" class="btn btn-primary" (click)="OnSubmit()">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -48,29 +48,28 @@
       <table class="table-header">
         <thead>
           <tr>
-            <th class="col-4">Título</th>
-            <th class="col-2">Autor</th>
-            <th class="col-2">Año</th>
-            <th class="col-2">Stock</th>
-            <th class="col-2">Género</th>
-            <th class="col-1">
+            <th class="text-center" style="width: 23%;">Título</th>
+            <th class="text-center" style="width: 23%;">Autor</th>
+            <th class="text-center" style="width: 9%;">Año</th>
+            <th class="text-center" style="width: 9%;">Stock</th>
+            <th class="text-center" style="width: 20%;">Género</th>
+            <th class="text-center" style="width: 20%;">
               <img src="assets/images/square.svg" />
             </th>
-            <th class="col-1"></th>
           </tr>
         </thead>
       </table>
       <div class="table-body">
-        <table class="table-body-content">
+        <table class="table-body-content" style="height: fit-content;">
           <tbody>
             <tr *ngFor="let libro of libros">
-              <td class="col-4">{{ libro.nombre }}</td>
-              <td class="col-2">{{ libro.nombreAutor }}</td>
-              <td class="col-2">{{ libro.anioPublicacion }}</td>
-              <td class="col-2">{{ libro.totalStock }}</td>
-              <td class="col-2">{{ libro.descripcionCategoria }}</td>
-              <td class="col-1">
-                <button type="button" class="btn btn-secondary">Pedir</button>
+              <td class="text-center" style="width: 23%;">{{ libro.nombre }}</td>
+              <td class="text-center" style="width: 23%;">{{ libro.nombreAutor }}</td>
+              <td class="text-center" style="width: 9%;">{{ libro.anioPublicacion }}</td>
+              <td class="text-center" style="width: 10%;">{{ libro.totalStock }}</td>
+              <td class="text-center" style="width: 20%;">{{ libro.descripcionCategoria }}</td>
+              <td class="text-center" style="width: 20%;">
+                <button type="button" class="btn btn-secondary" (click)="abrirModalPedido(libro.idLibro)">Pedir</button>
               </td>
             </tr>
           </tbody>
@@ -79,3 +78,5 @@
     </div>
   </div>
 </div>
+
+<app-registrar-pedido />

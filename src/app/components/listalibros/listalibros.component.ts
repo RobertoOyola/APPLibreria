@@ -11,7 +11,7 @@ import { LibrosServicesService } from '../../services/libros-services.service';
 import { filtroLibros } from '../../interfaces/filtroLibros';
 import { librosFiltrados } from '../../interfaces/librosFiltrados';
 import { LibrosResponse } from '../../interfaces/libroResponse';
-import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 import { RegistrarPedidoComponent } from '../registrar-pedido/registrar-pedido.component';
 
 @Component({
@@ -26,7 +26,8 @@ import { RegistrarPedidoComponent } from '../registrar-pedido/registrar-pedido.c
   styleUrls: ['./listalibros.component.css']
 })
 export class ListalibrosComponent implements OnInit {
-  @ViewChild(RegistrarPedidoComponent) dialogLogin!: RegistrarPedidoComponent;
+  @ViewChild(RegistrarPedidoComponent) dialogRegistrar!: RegistrarPedidoComponent;
+
   categorias: categoriaDTO[] = [];
   autores: AutorDTO[] = [];
   libros: librosFiltrados[] = [];
@@ -93,6 +94,13 @@ export class ListalibrosComponent implements OnInit {
     };
     this.obtenerLibros();
   }
-  
+
+  abrirModalPedido(idLibro: number): void {
+    if (this.dialogRegistrar) {
+      this.dialogRegistrar.openModal(idLibro);
+    } else {
+      console.error('El componente RegistrarPedidoComponent no está disponible.');
+    }
+  }
 }
 

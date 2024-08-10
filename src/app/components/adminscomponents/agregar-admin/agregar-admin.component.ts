@@ -3,11 +3,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
-import { estudianteDTO } from '../../interfaces/estudianteDTO';
-import { EstudiantesServicesService } from '../../services/estudiantes-services.service';
+import { usuarioDTO } from '../../../interfaces/usuarioDTO';
+import { UsuariosServicesService } from '../../../services/usuarios-services.service';
 
 @Component({
-  selector: 'app-addestudiante',
+  selector: 'app-agregar-admin',
   standalone: true,
   imports: [
     CommonModule, 
@@ -15,12 +15,13 @@ import { EstudiantesServicesService } from '../../services/estudiantes-services.
     HttpClientModule, 
     ToastrModule,
   ],
-  templateUrl: './addestudiante.component.html',
-  styleUrl: './addestudiante.component.css'
+  templateUrl: './agregar-admin.component.html',
+  styleUrl: './agregar-admin.component.css'
 })
-export class AddestudianteComponent {
-  estudiante: estudianteDTO = {
-    idEstudiante: 0,
+export class AgregarAdminComponent {
+
+  usuario: usuarioDTO = {
+    idUsuario: 0,
     cedula: '',
     correo: '',
     contrasenia: '',
@@ -28,27 +29,27 @@ export class AddestudianteComponent {
     estado: 'A'
   }
 
-  private _estudianteService = inject(EstudiantesServicesService)
+  private _usuarioService = inject(UsuariosServicesService)
 
   constructor(
     private toastr: ToastrService
   ){}
 
   OnSubmit(formulario: NgForm){
-    this._estudianteService.InsertarEstudiante(this.estudiante).subscribe({
+    this._usuarioService.InsertarEstudiante(this.usuario).subscribe({
       next: (response) =>{
-        this.toastr.success('Estudiante agregado con exito', 'Agregado');
+        this.toastr.success('Adiminstrador agregado con exito', 'Agregado');
         this.limpiarFormulario(formulario);
       },
       error: (error) => {
-              this.toastr.error('Error al agregar estudiante', 'Error');
+              this.toastr.error('Error al agregar admin', 'Error');
             }
     });
   }
 
   limpiarFormulario(formulario: NgForm) {
-    this.estudiante = {
-      idEstudiante: 0,
+    this.usuario = {
+      idUsuario: 0,
       cedula: '',
       correo: '',
       contrasenia: '',
@@ -57,5 +58,4 @@ export class AddestudianteComponent {
     };
     formulario.resetForm();
   }
-
 }

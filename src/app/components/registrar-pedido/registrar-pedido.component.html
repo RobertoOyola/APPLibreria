@@ -1,1 +1,47 @@
-<p>registrar-pedido works!</p>
+<div class="modal fade mt-5" id="myModalPedido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registrar Pedido</h5>
+        <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body" style="position: relative;">
+          <form (ngSubmit)="OnSubmit(formulario)" #formulario="ngForm">
+
+            <div class="mb-3">
+              <label for="floatingCorreo" class="form-label">Correo</label>
+              <input type="email" class="form-control" id="floatingCorreo" placeholder="Email" [(ngModel)]="prestamo.correo" name="correo" required #correo="ngModel">
+              <div *ngIf="correo.invalid && correo.touched" class="text-danger">
+                El correo es obligatorio y debe ser válido.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="floatingContrasenia" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="floatingContrasenia" placeholder="Contraseña" [(ngModel)]="prestamo.contrasenia" name="contrasenia" required #contrasenia="ngModel">
+              <div *ngIf="contrasenia.invalid && contrasenia.touched" class="text-danger">
+                La contraseña es obligatoria.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="floatingfechaEstimadaDevolucion" class="form-label">Fecha Devolucion</label>
+              <input type="date" class="form-control" id="floatingfechaEstimadaDevolucion" placeholder="Fecha Estimada Devolucion" [(ngModel)]="prestamo.fechaEstimadaDevolucion" name="fechaEstimadaDevolucion" required #fechaEstimadaDevolucion="ngModel">
+              <div *ngIf="fechaEstimadaDevolucion.invalid && fechaEstimadaDevolucion.touched" class="text-danger">
+                La Fecha es obligatoria.
+              </div>
+            </div>
+
+            <input type="hidden" [(ngModel)]="prestamo.idLibro" name="idLibro">
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+              <button type="submit" class="btn btn-primary">Enviar</button>
+    
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

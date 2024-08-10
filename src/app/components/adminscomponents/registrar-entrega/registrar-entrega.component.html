@@ -1,1 +1,46 @@
-<p>registrar-entrega works!</p>
+<div class="container-main">
+    <div class="filters">
+        <div class="row g-2 mt-3">
+            <div class="col-md">
+                <div class="form-floating">
+                    <input type="search" class="form-control" id="floatingInputGrid" placeholder="Busqueda"
+                    [(ngModel)]="busquedas" (ngModelChange)="obtenerPrestamos()">
+                    <label for="floatingInputGrid">Cedula</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="books-table">
+        <div class="table-container">
+            <table class="table-header">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="width: 22%;">Nombre</th>
+                        <th class="text-center" style="width: 19%;">Cedula</th>
+                        <th class="text-center" style="width: 21%;">Titulo</th>
+                        <th class="text-center" style="width: 17%;">Fecha de Prestamo</th>
+                        <th class="text-center" style="width: 17%;">Fecha de Devolucion</th>
+                        <th class="text-center" style="width: 14%;"><img src="assets/images/square.svg" /></th>
+                    </tr>
+                </thead>
+            </table>
+            <div class="table-body">
+                <table class="table-body-content" style="height: fit-content;">
+                    <tbody>
+                        <tr *ngFor="let prestamo of prestamos">
+                            <td class="text-center" style="width: 18%;">{{ prestamo.nombres }}</td>
+                            <td class="text-center" style="width: 14%;">{{ prestamo.cedula }}</td>
+                            <td class="text-center" style="width: 17%;">{{ prestamo.nombre }}</td>
+                            <td class="text-center" style="width: 14%;">{{ prestamo.fechaPrestamo | date:'yyyy-MM-dd' }}</td>
+                            <td class="text-center" style="width: 14%;">{{ prestamo.fechaEstimadaDevolucion | date:'yyyy-MM-dd' }}</td>
+                            <td class="text-center" style="width: 10%;">
+                                <button type="button" class="btn btn-secondary" (click)="abrirModalEntrega(prestamo.idPrestamo)">Pedir</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-modal-prestamo />

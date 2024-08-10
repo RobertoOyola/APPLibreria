@@ -37,7 +37,7 @@ export class DialogloginComponent {
   ){}
 
   openModal() {
-    const modalElement = document.getElementById('myModal');
+    const modalElement = document.getElementById('myModalLogin');
     if (modalElement) {
       this.modalInstance = new bootstrap.Modal(modalElement as HTMLElement);
       this.modalInstance.show();

@@ -10,6 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LibrosServicesService } from './app/services/libros-services.service';
 import { CategoriasService } from './app/services/categorias.service';
 import { AutoresService } from './app/services/autores.service';
+import { PrestamosServicesService } from './app/services/prestamos-services.service';
+import { DatePipe } from '@angular/common';
+import { EstudiantesServicesService } from './app/services/estudiantes-services.service';
 
 
 bootstrapApplication(AppComponent, {
@@ -18,9 +21,12 @@ bootstrapApplication(AppComponent, {
     LibrosServicesService,
     CategoriasService,
     AutoresService,
+    PrestamosServicesService,
+    EstudiantesServicesService,
 
     importProvidersFrom(
       BrowserModule,
+      DatePipe,
       BrowserAnimationsModule,
       AppRoutingModule,
       HttpClientModule,

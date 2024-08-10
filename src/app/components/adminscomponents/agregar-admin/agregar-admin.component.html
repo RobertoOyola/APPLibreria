@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-md-8 mt-4">
+      <div class="card shadow-sm">
+        <div class="card-body" style="position: relative;">
+          <form (ngSubmit)="OnSubmit(formulario)" #formulario="ngForm">
+            <h3 class="titulo">Agregar Administrador</h3>
+          
+            <div class="mb-3">
+              <label for="floatingNombre" class="form-label">Nombre y Apellidos</label>
+              <input type="text" class="form-control" id="floatingNombre" placeholder="Nombre Completo" [(ngModel)]="usuario.nombres" name="nombres" required #nombres="ngModel">
+              <div *ngIf="nombres.invalid && nombres.touched" class="text-danger">
+                El nombre es obligatorio.
+              </div>
+            </div>
+          
+            <div class="mb-3">
+              <label for="floatingCedula" class="form-label">Cedula</label>
+              <input type="text" class="form-control" id="floatingCedula" placeholder="Cedula" [(ngModel)]="usuario.cedula" name="cedula" required #cedula="ngModel">
+              <div *ngIf="cedula.invalid && cedula.touched" class="text-danger">
+                La cédula es obligatoria.
+              </div>
+            </div>
+          
+            <div class="mb-3">
+              <label for="floatingCorreo" class="form-label">Correo</label>
+              <input type="email" class="form-control" id="floatingCorreo" placeholder="Email" [(ngModel)]="usuario.correo" name="correo" required #correo="ngModel">
+              <div *ngIf="correo.invalid && correo.touched" class="text-danger">
+                El correo es obligatorio y debe ser válido.
+              </div>
+            </div>
+          
+            <div class="mb-3">
+              <label for="floatingContrasenia" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="floatingContrasenia" placeholder="Contraseña" [(ngModel)]="usuario.contrasenia" name="contrasenia" required #contrasenia="ngModel">
+              <div *ngIf="contrasenia.invalid && contrasenia.touched" class="text-danger">
+                La contraseña es obligatoria.
+              </div>
+            </div>
+          
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid">Agregar Administrador</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

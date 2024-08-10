@@ -1,0 +1,81 @@
+.container-main {
+    width: 100%;
+    height: calc(100vh - 6vh);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.filters {
+    width: 95%;
+    margin-bottom: 1rem;
+}
+
+.books-table {
+    width: 95%;
+    padding: 1rem;
+    background-color: white;
+    margin-bottom: 3rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    flex: 1;
+    height: 170vh;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: static;
+}
+
+.table-header,
+.table-body-content {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.table-header th, 
+.table-body-content td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-header th {
+    background-color: #f0f0f0;
+}
+
+.table-body {
+    position: relative;
+    display: flex;
+    height: 45vh;
+    overflow-y: auto;
+}
+
+.table-body-content td {
+    white-space: nowrap;
+    padding: 1rem;
+}
+
+.table-body tr:hover {
+    background-color: #f9f9f9;
+}
+
+.custom-select {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .filters .row,
+    .books-table .table-container {
+        flex-direction: column;
+    }
+}
